@@ -4,24 +4,24 @@
 
 try{
 
-if(isset($_POST['username']) && isset($_POST['password'])){
+if(isset($_POST['email']) && isset($_POST['password'])){
 
-$username=trim($_POST['username']);
+$email=trim($_POST['email']);
 $password=strip_tags(trim($_POST['password']));
 
-$login="SELECT *FROM users WHERE username=? AND password=?";
+$login="SELECT *FROM users WHERE email=?  AND password=?";
 $query=$conn->prepare($login);
-$query->execute(array($username,$password));
+$query->execute(array($email,$password));
 
 $row=$query->fetch();
 $_SESSION['userType']=$row['userType'];
 if ($row>0) {
-	$_SESSION['username'] =$username;
+	$_SESSION['email'] =$email;
 if ($_SESSION['userType']=='Admin') {
 
 	?> 
 	<script type="text/javascript">
-		alert("login successfull, Welcome <?php echo $username ?> to Exodus Dashboard ");
+		alert("login successfull, Welcome <?php echo $email ?> to Exodus Dashboard ");
 		location.href='dashboard/index.php';
 	</script>
 	

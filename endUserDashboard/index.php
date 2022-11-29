@@ -4,7 +4,7 @@ session_start();
 include 'db/connection.php';
 
 
-// if (!isset($_SESSION['username'] )) {
+// if (!isset($_SESSION['email'] )) {
 
 // 	header('location:../signup_page.php');
 // }
@@ -82,7 +82,7 @@ include 'db/connection.php';
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION['username'] ;?></h6>
+                        <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
                         <span>End User</span>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ include 'db/connection.php';
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['username'] ;?></span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>

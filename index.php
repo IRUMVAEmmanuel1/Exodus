@@ -45,7 +45,7 @@ include 'dashboard/db/connection.php';
 					<li class="nav-item" ><a href="#about" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="#destination" class="nav-link">Destination</a></li>
 					<li class="nav-item"><a href="hotel.php" class="nav-link">Hotel</a></li>
-					<li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="gallery.php" class="nav-link">Gallery</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 					
 				</ul>
@@ -329,7 +329,7 @@ include 'dashboard/db/connection.php';
 					<div class="col-md-4 ftco-animate">
 						<div class="project-wrap">
 							<a href="BookingForm.php?id=<?=$row["id"]; ?> " class="img" style="background-image: url('<?php echo $imageURL; ?>');">
-							<!-- <a href="#"><img class="img"src="<?php echo $imageURL; ?>" alt=""> -->
+							
 								<span class="price">$ <?php echo $row["price"] ?>/person</span>
 							</a>
 							<div class="text p-4">

@@ -5,7 +5,7 @@ include '../db/connection.php';
 
 
 if (!isset($_SESSION['email'] )) {
-	header('location:../login/signin.php');
+	header('location:../sign_up.php');
 }
 
 

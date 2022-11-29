@@ -4,7 +4,7 @@ session_start();
 include '../db/connection.php';
 
 
-if (!isset($_SESSION['username'] )) {
+if (!isset($_SESSION['email'] )) {
 	header('location:../signup_page.php');
 }
 ?>
@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'] )) {
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                <h6 class="mb-0"><?php echo $_SESSION['username'] ;?></h6>
+                <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
                 <span>Admin</span>
                      </div>
                 </div>
@@ -143,12 +143,12 @@ if (!isset($_SESSION['username'] )) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['username'] ;?></span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../login/signout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -200,9 +200,7 @@ if(in_array($fileType, $allowTypes)){
 
 if (move_uploaded_file($files,$path )) {
 
-    // Insert image file name into database
-    if($hotelName !=='hotelName'){
-$savefile=$conn->prepare("INSERT INTO `hotels`(`hotelName`, `file_name`, `location`, `duration`, `near`, `price`) VALUES (?,?,?,?,?,?)  ");
+    $savefile=$conn->prepare("INSERT INTO `hotels`( `hotelName`, `file_name`, `location`, `duration`, `near`, `price`) VALUES (?,?,?,?,?,?)");
 $RESULT=$savefile->execute(array($hotelName,$filename,$location,$duration,$near,$price));
 
 
@@ -210,7 +208,7 @@ if($RESULT){
     ?>
     <div class="alert alert-success alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
-     Thank you <?php $_SESSION['username']; ?>, new hotel <?php echo $filename ?> added successful
+     Thank you <?php $_SESSION['email']; ?>, new hotel <?php echo $filename ?> added successful
     
   </div>
   <?php
@@ -229,35 +227,29 @@ else{
     ?>
     <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
-      sorry.
-  </div><?php  
+      Sorry, there was an error uploading your file.
+  </div><?php 
 }
    
 }else{
-
-    ?>
-    <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
-      Sorry, there was an error uploading your file.
-  </div><?php
-}
-}else{
-
     ?>
     <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
       Sorry, only JPG, JPEG, PNG, GIF, files are allowed to upload.
   </div><?php
+    
+}
+}else{
 
-}}
-else{
     ?>
     <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
       Please select a file to upload.'
   </div><?php
 
+
 }
+
   
   ?>
 

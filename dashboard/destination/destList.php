@@ -3,7 +3,7 @@
 session_start();
 include '../db/connection.php';
 
-if (!isset($_SESSION['username'] )) {
+if (!isset($_SESSION['email'] )) {
 	header('location:../signup_page.php');
 }
 
@@ -87,7 +87,7 @@ if (!isset($_SESSION['username'] )) {
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                <h6 class="mb-0"><?php echo $_SESSION['username'] ;?></h6>
+                <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
                 <span>Admin</span>
                      </div>
                 </div>
@@ -105,9 +105,8 @@ if (!isset($_SESSION['username'] )) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2 text-primary"></i>Users</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../adduser/adduser.php" class="nav-item nav-link"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
-                            <a href="../adduser/listuser.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>UserList</a>
-                            
+                        <a href="../adduser/adduser.php" class="nav-item nav-link"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
+                        <a href="../adduser/listuser.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>UserList</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -160,12 +159,12 @@ if (!isset($_SESSION['username'] )) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['username'] ;?></span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../login/signout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -215,8 +214,8 @@ foreach($feching as $key => $destination)
              <td><?=$destination->time; ?></td>
              
              <td>
-            <a href="edit.php?id=<?=$user->id; ?>" style="padding-right: 10px; color:green"><button class="btn btn-success">edit</button></a>
-            <a href="delete.php?id=<?=$user->id; ?>" onclick="return confirm('Are you sure you want to delete this file with its details permanently? click Ok to continue or click Cancel')"><button class="btn btn-danger">delete</button></a>
+            <a href="edit.php?id=<?=$destination->id; ?>" style="padding-right: 10px; color:green"><button class="btn btn-success">edit</button></a>
+            <a href="delete.php?id=<?=$destination->id; ?>" onclick="return confirm('Are you sure you want to delete this file with its details permanently? click Ok to continue or click Cancel')"><button class="btn btn-danger">delete</button></a>
            
         </td>
       </tr>
@@ -242,13 +241,13 @@ foreach($feching as $key => $destination)
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">jehovahjireh.rw</a>, All Right Reserved. 
+                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">Eugene</a>
+                            <!-- Designed By <a href="https://htmlcodex.com">Eugene</a> -->
                         </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">jehovahjireh choir</a>
+                        Distributed By <a class="border-bottom" href="#" target="_blank">exodus</a>
                         </div>
                     </div>
                 </div>

@@ -69,7 +69,7 @@ while($row = $result){
          <li class="nav-item"><a href="index.php#about" class="nav-link">About</a></li>
          <li class="nav-item "><a href="#" class="nav-link">Destination</a></li>
          <li class="nav-item"><a href="hotel.php" class="nav-link">Hotel</a></li>
-         <li class="nav-item"><a href="index.php#blog" class="nav-link">Blog</a></li>
+         <li class="nav-item"><a href="gallery.php" class="nav-link">Gallery</a></li>
          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
          
      </ul>
@@ -78,9 +78,9 @@ while($row = $result){
 </div>
 </nav>
 
-<section class="ftco-section contact-section " style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('images/bg_1.jpg');">
+<section class="ftco-section contact-section  " style="background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('images/bg_1.jpg');">
   <div class="container">
-  <h1 class="card-header" style=" color:white; padding-left:120px;">BOOKING NOW </h1>
+  <h1 class="card-header pt-5" style=" color:white; padding-left:120px;">BOOKING NOW </h1>
     <div class="row block-9 bg-light" style="border-radius:10px;">
     <div class="col-md-6 d-flex  " style="background-image: url('images/Traveler-booking.jpg');">
        <div> <img src="images/Traveler-booking.jpg" alt="" style="height: 575px; border-radius:20px 20px 20px 20px; padding-top:10px;"></div>
@@ -121,14 +121,14 @@ if ($query) {
 <?php
 }
 
-}
+
 else{
  ?>
   <div class="alert alert-danger alert-dismissable">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true" >x</button>
 	please fill all form
 </div><?php
-}?>
+}}?>
            <div class="form-group">
            <?php
                                 $id=$_GET['id'];

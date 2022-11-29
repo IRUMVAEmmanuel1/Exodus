@@ -4,7 +4,7 @@ include '../db/connection.php';
 
 
 if (!isset($_SESSION['email'] )) {
-	header('location:../login/signin.php');
+	header('location:../sign_up.php');
 }
 
 
@@ -56,9 +56,9 @@ if (!isset($_SESSION['email'] )) {
 
  <!-- Sidebar Start -->
  <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
+ <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Jehovahjireh <span style="color: red;">News</span></h3>
+                    <h3 class="text-primary">Exodus</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -72,57 +72,51 @@ if (!isset($_SESSION['email'] )) {
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="../index.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Dashboard</a>
+                    
                     <div class="nav-item dropdown">
-                        <a href="post.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Post News</a>
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Destination</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="#" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add News </a>
-                            <a href="postlist.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>News list</a>
-                            
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Post Event</a>
-                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../event/addEvent.php" class="dropdown-item"><i class="fa fa-plus-circle me-2 text-primary"></i>Add New Event</a>
-                            <a href="../event/eventList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Event List</a>
+                            <a href="#" class="dropdown-item active"><i class="fa fa-plus-circle me-2 text-primary"></i>Add Destination</a>
+                            <a href="destList.php" class="dropdown-item "><i class="fa fa-file me-2 text-primary"></i>destination List</a>
                             
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2 text-primary"></i>Users</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../adduser/adduser.php" class="nav-item nav-link active"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
+                            <a href="../adduser/adduser.php" class="nav-item nav-link"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
                             <a href="../adduser/listuser.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>UserList</a>
                             
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-image me-2 text-primary"></i>Gallery</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-image me-2 text-primary"></i>Gallery</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="#" class="nav-item nav-link active"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Gallery</a>
+                            <a href="#" class="nav-item nav-link "><i class="fa fa-plus-circle me-2 text-primary"></i> Add Gallery</a>
                             <a href="listOfGallery.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Gallery list</a>
                             
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-music me-2 text-primary"></i>Our songs</a>
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Hotel</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../songs/addsong.php" class="nav-item nav-link "><i class="fa fa-plus-circle me-2 text-primary"></i> Add songs</a>
-                            <a href="../songs/addsong.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>our songs</a>
+                            <a href="../hotels/hotelPages.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add Hotel </a>
+                            <a href="../hotels/hotelList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Hotel list</a>
+                            
+                        </div>
+                    </div> 
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>View booking</a>
+                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
+                            <a href="../Booked/BookedDestination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Tour Booking </a>
+                            <a href="../Booked/BookedHotel.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Hotel Booking</a>
                             
                         </div>
                     </div>
                     
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2 text-primary"></i>Advatising</a>
-                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../advitise/addAdvatising.php" class="nav-item nav-link "><i class="fa fa-plus-circle me-2 text-primary"></i> Add </a>
-                            <a href="../advitise/list.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>List</a>
-                            
-                        </div>
-                    </div>
                 </div>
-            </nav></div>
+            </nav>
+        </div>
         <!-- Sidebar End -->
 
 
@@ -205,13 +199,13 @@ if (!isset($_SESSION['email'] )) {
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">jehovahjireh.rw</a>, All Right Reserved. 
+                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">Eugene</a>
+                            <!-- Designed By <a href="https://htmlcodex.com">Eugene</a> -->
                         </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">jehovahjireh choir</a>
+                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">Exodus</a>
                         </div>
                     </div>
                 </div>

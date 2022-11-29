@@ -58,11 +58,15 @@ include '../db/connection.php';
       
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
-                <a href="../index.php" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Jehovahjireh <span style="color: red;">News</span></h3>
-                </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
+           
+
+
+
+<nav class="navbar bg-light navbar-light">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary">Exodus </h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
@@ -74,19 +78,12 @@ include '../db/connection.php';
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="../index.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Dashboard</a>
+                    
                     <div class="nav-item dropdown">
-                        <a href="post.html" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Post News</a>
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Destination</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../news/addnews.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add News </a>
-                            <a href="../news/postlist.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>News list</a>
-                            
-                        </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Post Event</a>
-                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../event/addEvent.php" class="dropdown-item"><i class="fa fa-plus-circle me-2 text-primary"></i>Add New Event</a>
-                            <a href="../event/eventList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Event List</a>
+                            <a href="../destination/destination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add Destination</a>
+                            <a href="../destination/destList.php" class="dropdown-item "><i class="fa fa-file me-2 text-primary"></i>destination List</a>
                             
                         </div>
                     </div>
@@ -95,7 +92,6 @@ include '../db/connection.php';
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="../adduser/adduser.php" class="nav-item nav-link"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
                             <a href="../adduser/listuser.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>UserList</a>
-                            
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -107,23 +103,27 @@ include '../db/connection.php';
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-music me-2 text-primary"></i>Our songs</a>
-                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../songs/addsong.php" class="nav-item nav-link "><i class="fa fa-music me-2 text-primary"></i> Add songs</a>
-                            <a href="../songs/addsong.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>our songs</a>
+                        <a href="#" class="nav-link dropdown-toggle  " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Hotel</a>
+                        <div class="dropdown-menu bg-transparent border-0 " style="padding-left: 30px;">
+                            <a href="../hotels/hotelPages.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary "></i>Add Hotel </a>
+                            <a href="../hotels/hotelList.php" class="dropdown-item active"><i class="fa fa-file me-2 text-primary"></i>Hotel list</a>
                             
                         </div>
-                    </div>
+                    </div> 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2 text-primary"></i>Advatising</a>
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>View booking</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="../advitise/addAdvatising.php" class="nav-item nav-link "><i class="fa fa-plus-circle me-2 text-primary"></i> Add </a>
-                            <a href="../advitise/list.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>List</a>
+                            <a href="../Booked/BookedDestination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Tour Booking </a>
+                            <a href="../Booked/BookedHotel.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Hotel Booking</a>
                             
                         </div>
                     </div>
+                    
                 </div>
-            </nav></div>
+    </nav>
+
+
+</div>
         <!-- Sidebar End -->
 
 

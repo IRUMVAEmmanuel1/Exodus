@@ -45,7 +45,7 @@ include 'dashboard/db/connection.php';
          <li class="nav-item"><a href="index.php#about" class="nav-link">About</a></li>
          <li class="nav-item "><a href="#" class="nav-link">Destination</a></li>
          <li class="nav-item"><a href="hotel.php" class="nav-link">Hotel</a></li>
-         <li class="nav-item"><a href="index.php#blog" class="nav-link">Blog</a></li>
+         <li class="nav-item"><a href="gallery.php" class="nav-link">Gallery</a></li>
          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
      </ul>
  </div>

@@ -16,7 +16,7 @@ $query->execute(array($username,$password));
 $row=$query->fetch();
 $_SESSION['userType']=$row['userType'];
 if ($row>0) {
-	$_SESSION['username'] =$username;
+	$_SESSION['email'] =$username;
 	if ($_SESSION['userType']=='endUser'){
 
 	?> 

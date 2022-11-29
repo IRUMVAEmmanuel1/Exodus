@@ -1,4 +1,5 @@
 <?php 
+
 include '../db/connection.php';
 // $statusMsg = '';
 $hotelName=$_POST['hotelName'];

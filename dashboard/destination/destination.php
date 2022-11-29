@@ -4,7 +4,7 @@ session_start();
 include '../db/connection.php';
 
 
-if (!isset($_SESSION['username'] )) {
+if (!isset($_SESSION['email'] )) {
 	header('location:../signup_page.php');
 }
 ?>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['username'] )) {
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                <h6 class="mb-0"><?php echo $_SESSION['username'] ;?></h6>
+                <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
                 <span>Admin</span>
                      </div>
                 </div>
@@ -76,7 +76,7 @@ if (!isset($_SESSION['username'] )) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Destination</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
-                            <a href="destination/destination.php" class="dropdown-item active"><i class="fa fa-plus-circle me-2 text-primary"></i>Add Destination</a>
+                            <a href="#" class="dropdown-item active"><i class="fa fa-plus-circle me-2 text-primary"></i>Add Destination</a>
                             <a href="destList.php" class="dropdown-item "><i class="fa fa-file me-2 text-primary"></i>destination List</a>
                             
                         </div>
@@ -139,12 +139,12 @@ if (!isset($_SESSION['username'] )) {
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['username'] ;?></span>
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../login/signout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

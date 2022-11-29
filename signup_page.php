@@ -43,7 +43,7 @@
 					<li class="nav-item"><a href="index.php#about" class="nav-link" style="color:black ;">About</a></li>
 					<li class="nav-item"><a href="index.php#destination" class="nav-link" style="color:black ;">Destination</a></li>
 					<li class="nav-item"><a href="index.php#hotel" class="nav-link"style="color:black ;">Hotel</a></li>
-					<li class="nav-item"><a href="index.php#blog.html" class="nav-link" style="color:black ;">Blog</a></li>
+					<li class="nav-item"><a href="gallery.php" class="nav-link">Gallery</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link" style="color:black ;">Contact</a></li>
 					
 				</ul>
@@ -103,7 +103,7 @@
 			  <form method="POST" action="login.php">
 				<div class="group">
 					<label for="user" class="label">Username</label>
-					<input id="user" type="text" class="input" name="username" placeholder="enter username or Email">
+					<input id="user" type="email" class="input" name="email" placeholder="enter username or Email">
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
