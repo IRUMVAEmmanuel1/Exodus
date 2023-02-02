@@ -77,7 +77,7 @@ include 'dashboard/db/connection.php';
 					<h1 class="mb-4">Discover Your <span style="color: #007bff;">Favorite</span> Place with Us</h1>
 					<p class="caps">Travel to the any corner of the world, without going around in circles</p>
 				</div>
-				<a href=" https://rr1---sn-4g5ednsl.googlevideo.com/videoplayback?expire=1668113159&ei=pw5tY5m9Juig0_wPwqiLoAU&ip=216.131.75.5&id=o-ADKCDROKxpsHxXBRGTlVNvV2wU6z2870Mo_7xHFP18nn&itag=18&source=youtube&requiressl=yes&spc=SFxXNuaaA0HcWgkxMpa2u-5_NNWEnG8&vprv=1&mime=video%2Fmp4&ns=qXG7KurNq69eeSDdzrPvZBMJ&cnr=14&ratebypass=yes&dur=208.840&lmt=1664716158389133&fexp=24001373,24007246&c=WEB&txp=4438434&n=bir6mbyK73e-6g&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQCYseZfHULTXq1XshwYojjkLyAXuOJP_XDMDraQrXS8CIC053OhksKHyGAiBMKi25EH6ktoBKDladGH_vdA0Yfla&rm=sn-5uaeek7s&req_id=d8353130fbcda3ee&ipbypass=yes&cm2rm=sn-bgv02x8p8xoqp-3bae7e,sn-wocr7e&redirect_counter=3&cms_redirect=yes&cmsv=e&mh=ah&mip=2c0f:eb68:203:3c00:ed29:588f:a91d:c9c7&mm=34&mn=sn-4g5ednsl&ms=ltu&mt=1668091010&mv=m&mvi=1&pl=32&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAOAUFVtKm_yAuJ_Fn5TQWRe6VMqavkRrLZUhAOxr4wUHAiEA1SnpMBDr4OkQ_OGbiBoUKonCrwR917Hk5lz0xdEhXic%3D" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+				<a href="https://www.youtube.com/watch?v=s3LZ1xXYTlI" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
 					<span class="fa fa-play"></span>
 				</a>
 			</div>
@@ -312,21 +312,7 @@ include 'dashboard/db/connection.php';
 				</div>
 			</div>
 			<div class="col-md d-flex">
-				<!-- <div class="form-group  border-0">
-														
-														<div class="form-field">
-															<div class="icon d-flex">
-															<select class="form-control" style="width: 70%;">
-															
-																<option  value="1" name="rwanda">Rwanda</option>
-																<option value="1" name="israel"> Israel</option>
-																<option value="1">Asia</option>
-																<option value="1">Kenya</option>
-														</select>
-														<div  type="submit" class="bg-primary px-3"><span class="fa fa-search pt-3 text-white"></span></div></div>
-														
-													</div>
-												</div> -->
+
 			</div>
 			<div class="row">
 
@@ -393,7 +379,7 @@ include 'dashboard/db/connection.php';
 		<div class="container py-md-5">
 			<div class="row py-md-5">
 				<div class="col-md d-flex align-items-center justify-content-center">
-					<a href=" https://rr1---sn-4g5ednsl.googlevideo.com/videoplayback?expire=1668113159&ei=pw5tY5m9Juig0_wPwqiLoAU&ip=216.131.75.5&id=o-ADKCDROKxpsHxXBRGTlVNvV2wU6z2870Mo_7xHFP18nn&itag=18&source=youtube&requiressl=yes&spc=SFxXNuaaA0HcWgkxMpa2u-5_NNWEnG8&vprv=1&mime=video%2Fmp4&ns=qXG7KurNq69eeSDdzrPvZBMJ&cnr=14&ratebypass=yes&dur=208.840&lmt=1664716158389133&fexp=24001373,24007246&c=WEB&txp=4438434&n=bir6mbyK73e-6g&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgQCYseZfHULTXq1XshwYojjkLyAXuOJP_XDMDraQrXS8CIC053OhksKHyGAiBMKi25EH6ktoBKDladGH_vdA0Yfla&rm=sn-5uaeek7s&req_id=d8353130fbcda3ee&ipbypass=yes&cm2rm=sn-bgv02x8p8xoqp-3bae7e,sn-wocr7e&redirect_counter=3&cms_redirect=yes&cmsv=e&mh=ah&mip=2c0f:eb68:203:3c00:ed29:588f:a91d:c9c7&mm=34&mn=sn-4g5ednsl&ms=ltu&mt=1668091010&mv=m&mvi=1&pl=32&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAOAUFVtKm_yAuJ_Fn5TQWRe6VMqavkRrLZUhAOxr4wUHAiEA1SnpMBDr4OkQ_OGbiBoUKonCrwR917Hk5lz0xdEhXic%3D" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+					<a href="https://www.youtube.com/watch?v=s3LZ1xXYTlI" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
 						<span class="fa fa-play"></span>
 					</a>
 				</div>

@@ -36,7 +36,7 @@ include 'dashboard/db/connection.php';
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Exodus<span>Travel Agency</span></a>
+      <a class="navbar-brand" href="index.php">Exodus<span>Travel Agency</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -45,7 +45,7 @@ include 'dashboard/db/connection.php';
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="index.php#about" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="index.php#destination.html" class="nav-link">Destination</a></li>
+          <li class="nav-item"><a href="index.php#destination.php" class="nav-link">Destination</a></li>
           <li class="nav-item active"><a href="#" class="nav-link">Hotel</a></li>
           <li class="nav-item"><a href="index.php#blog" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="index.php#service" class="nav-link">Service</a></li>
@@ -62,7 +62,7 @@ include 'dashboard/db/connection.php';
     <div class="container">
       <div class="row no-gutters slider-text  align-items-end justify-content-center" style="padding-top:200px;">
         <div class="col-md-9 ftco-animate pb-5 text-center">
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Hotel <i class="fa fa-chevron-right"></i></span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home <i class="fa fa-chevron-right"></i></a></span> <span>Hotel <i class="fa fa-chevron-right"></i></span></p>
           <h1 class="mb-0 bread">Hotels</h1>
         </div>
       </div>

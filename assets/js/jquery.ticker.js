@@ -64,7 +64,7 @@
 			};
 
 			// if we are not using a UL, display an error message and stop any further execution
-			if (tagType != 'UL' && tagType != 'OL' && opts.htmlFeed === true) {
+			if (tagType != 'UL' && tagType != 'OL' && opts.phpFeed === true) {
 				debugError('Cannot use <' + tagType.toLowerCase() + '> type of element for this plugin - must of type <ul> or <ol>');
 				return false;
 			}
@@ -241,11 +241,11 @@
 							debugError('Code Me!');	
 						}						
 					}
-					else if (opts.htmlFeed) { 
+					else if (opts.phpFeed) { 
 						if($(newsID + ' LI').length > 0) {
 							$(newsID + ' LI').each(function (i) {
 								// maybe this could be one whole object and not an array of objects?
-								settings.newsArr['item-' + i] = { type: opts.titleText, content: $(this).html()};
+								settings.newsArr['item-' + i] = { type: opts.titleText, content: $(this).php()};
 							});		
 						}	
 						else {
@@ -266,8 +266,8 @@
 
 				// update the ticker content with the correct item
 				// insert news content into DOM
-				$(settings.dom.titleElem).html(settings.newsArr['item-' + settings.position].type);
-				$(settings.dom.contentID).html(settings.newsArr['item-' + settings.position].content);
+				$(settings.dom.titleElem).php(settings.newsArr['item-' + settings.position].type);
+				$(settings.dom.contentID).php(settings.newsArr['item-' + settings.position].content);
 
 				// set the next content item to be used - loop round if we are at the end of the content
 				if (settings.position == (countSize(settings.newsArr) -1)) {
@@ -389,12 +389,12 @@
 						else {
 							settings.position = settings.position - 2;
 						}
-						$(settings.dom.titleElem).html(settings.newsArr['item-' + settings.position].type);
-						$(settings.dom.contentID).html(settings.newsArr['item-' + settings.position].content);						
+						$(settings.dom.titleElem).php(settings.newsArr['item-' + settings.position].type);
+						$(settings.dom.contentID).php(settings.newsArr['item-' + settings.position].content);						
 						break;
 					case 'next':
-						$(settings.dom.titleElem).html(settings.newsArr['item-' + settings.position].type);
-						$(settings.dom.contentID).html(settings.newsArr['item-' + settings.position].content);
+						$(settings.dom.titleElem).php(settings.newsArr['item-' + settings.position].type);
+						$(settings.dom.contentID).php(settings.newsArr['item-' + settings.position].content);
 						break;
 				}
 				// set the next content item to be used - loop round if we are at the end of the content
