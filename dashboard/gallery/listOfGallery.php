@@ -17,7 +17,7 @@ include '../db/connection.php';
 
 <head>
     <meta charset="utf-8">
-    <title> Jehovahjireh </title>
+    <title> Exodus </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -42,6 +42,9 @@ include '../db/connection.php';
 
 <!-- Template Stylesheet -->
 <link href="../css/style.css" rel="stylesheet">
+
+<!-- table -->
+<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,16 +66,16 @@ include '../db/connection.php';
 
 
 <nav class="navbar bg-light navbar-light">
-        <a href="index.html" class="navbar-brand mx-4 mb-3">
+        <a href="index.php" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary">Exodus </h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="<?php echo $_SESSION['admin']; ?>"" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
+                <h6 class="mb-0"><?php echo $_SESSION['username'] ;?></h6>
                 <span>Admin</span>
                      </div>
                 </div>
@@ -111,6 +114,14 @@ include '../db/connection.php';
                         </div>
                     </div> 
                     <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Blog</a>
+                        <div class="dropdown-menu bg-transparent border-0 " style="padding-left: 30px;">
+                            <a href="../blog/BlogPage.php" class="dropdown-item  "><i class="fa fa-plus-circle me-2 text-primary "></i>Add Blog </a>
+                            <a href="../blog/BlogList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Blog list</a>
+                            
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>View booking</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="../Booked/BookedDestination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Tour Booking </a>
@@ -118,7 +129,14 @@ include '../db/connection.php';
                             
                         </div>
                     </div>
-                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>services</a>
+                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
+                            <a href="../service/services.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Addservice </a>
+                            <a href="../service/serviceList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>serviceList</a>
+                        </div>
+                    </div>
+                    <a href="../feedback/feedback.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>feedback</a>
                 </div>
     </nav>
 
@@ -131,7 +149,7 @@ include '../db/connection.php';
         <div class="content bg-light">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="index.php" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -145,13 +163,13 @@ include '../db/connection.php';
                    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="<?php echo $_SESSION['admin']; ?>"" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="../profile/profile.php" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../login/signout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -168,46 +186,48 @@ include '../db/connection.php';
 
 
                     
-                        <table class="table table-striped">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0" id="example">
                         <thead>
-                                <tr>
+                                <tr class="bg-primary text-white">
                                     <th scope="col">#</th>
                                    
                                     <th scope="col">title</th>
 
-                                    <th scope="col">Gallery name</th>
+                                    <th scope="col">Gallery Image</th>
 
                                     <th scope="col">posted on</th>
-                                    
+
                                     <th scope="col">action</th>
                                 </tr>
                             </thead>
 
+                           
+ 
+  <tbody>
 
-                            <?php
+  <?php
   $i=0;
 foreach($feching as $key => $gallery)
   { 
+    $imageURL = '../img/gallery/' . $gallery->image;
   $i++;
    ?>
-
-   
-  <tbody>
      <tr>
         
         <th scope="row"><?php echo $i ?></th>
                                 
             <td><?=$gallery->title; ?></td>
-             <td><?=$gallery->image; ?></td>
+            
+             <td> <img src="<?php echo $imageURL; ?>" width=80px  /></td>
              <td><?=$gallery->date; ?></td>
             <td>
-            <a href="edit.php?id=<?=$user->id; ?>" style="padding-right: 10px;"><img src="../img/edit.png" style="width:20px; height:auto;"></a>
-            <a href="deleteUser.php?id=<?=$user->id; ?>" onclick="return confirm('Are you sure you want to delete this user  with permission permanently? click Ok to continue or click Cancel')"><img src="../img/delete.png" style="width:30px; height:auto"></a>
+            <a href="edit.php?id=<?=$gallery->id; ?>" style="padding-right: 10px;"><button class="btn btn-primary">Edit</button></a>
+            <a href="delete.php?id=<?=$gallery->id; ?>" onclick="return confirm('Are you sure you want to delete this user  with permission permanently? click Ok to continue or click Cancel')"><button class="btn btn-danger">Delete</button></a>
              </td>
       </tr>
-                               
+      <?php } ?>                 
       </tbody>
-                            <?php } ?>
+                          
                         </table>
                     </div>
                 </div>
@@ -227,13 +247,13 @@ foreach($feching as $key => $gallery)
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">jehovahjireh.rw</a>, All Right Reserved. 
+                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             Designed By <a href="https://htmlcodex.com">Eugene</a>
                         </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">jehovahjireh choir</a>
+                        Distributed By <a class="border-bottom" href="#" target="_blank">Exodus </a>
                         </div>
                     </div>
                 </div>
@@ -263,3 +283,18 @@ foreach($feching as $key => $gallery)
 </body>
 
 </html>
+
+</head>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#example').DataTable();
+} );
+</script>
+
+</head>

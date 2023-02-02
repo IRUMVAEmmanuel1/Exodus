@@ -1,22 +1,22 @@
-<?php 
+<?php
 session_start();
 
 include 'db/connection.php';
 
 
-// if (!isset($_SESSION['email'] )) {
+if (!isset($_SESSION['email'])) {
 
-// 	header('location:../signup_page.php');
-// }
+    header('location:../signup_page.php');
+}
 
 
 
-		$retrieve="SELECT * FROM users WHERE userType='endUser'";
-		$query= $conn->query($retrieve);
-		// $query->execute();
-		$feching=$query->fetchAll(PDO::FETCH_OBJ);
+$retrieve = "SELECT * FROM users WHERE userType='endUser'";
+$query = $conn->query($retrieve);
+// $query->execute();
+$feching = $query->fetchAll(PDO::FETCH_OBJ);
 
-     ?>
+?>
 
 
 <!DOCTYPE html>
@@ -56,9 +56,22 @@ include 'db/connection.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    
-</head>
 
+</head>
+<style>
+
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #f6d365;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right bottom, rgb(0,156,255), rgb(243, 240, 240));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right bottom, rgb(0,156,255), rgb(248, 246, 246))
+  }
+</style>
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -69,35 +82,35 @@ include 'db/connection.php';
         </div> -->
         <!-- Spinner End -->
 
-
+        
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3 " >
+        <div class="sidebar pe-4 pb-3 ">
             <nav class="navbar  navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="index.php" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary">Exodus </h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded" src="<?php echo $_SESSION['userimage'];?>" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
-                        <span>End User</span>
+                        <h6 class="mb-0"><?php echo $_SESSION['email']; ?></h6>
+                        <span>User</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="#" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2 text-primary"></i>Dashboard</a>
-                    
-                    <a href="users/userList.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>users</a>
-                    <a href="#" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Booked dest</a>
-                   
-                    <a href="#" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Booked Hotel</a>
-                   
-                   
+                    <a href="../index.php#destination" class="nav-item nav-link "><img src="backHome.jpg" style="width:40px;">Back Home to <span style="padding-left:40px;">booking</span></a>
+                    <!-- <a href="users/userList.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>profile</a> -->
+                    <a href="Booked/booked.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Booked dest</a>
+
+                    <a href="Booked/hotelBoked.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>Booked Hotel</a>
+
+
                 </div>
             </nav>
-            </div>
+        </div>
         <!-- Sidebar End -->
 
 
@@ -105,7 +118,7 @@ include 'db/connection.php';
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-2 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="index.php" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -115,18 +128,18 @@ include 'db/connection.php';
                     <input class="form-control border-0 text-danger" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    
-                   
+
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
+                            <img class="rounded me-lg-2" src="<?php echo $_SESSION['userimage'];?>" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email']; ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="../dashboard/login/signout.php" class="dropdown-item">Log Out</a>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -135,12 +148,12 @@ include 'db/connection.php';
 
 
             <!-- Sale & Revenue Start -->
-           
+
             <!-- Sale & Revenue End -->
 
 
             <!-- Sales Chart Start -->
-            
+
 
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
@@ -153,10 +166,10 @@ include 'db/connection.php';
                                 $query = $connect->query("SELECT * FROM destination");
 
 
-                                
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                               
+
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -168,9 +181,9 @@ include 'db/connection.php';
                                 <?php
                                 $query = $connect->query("SELECT * FROM hotels");
 
-                            ?>
-                               <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                              
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -182,9 +195,9 @@ include 'db/connection.php';
                                 <?php
                                 $query = $connect->query("SELECT * FROM booking");
 
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                                
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -195,9 +208,9 @@ include 'db/connection.php';
                                 <p class="mb-2">Total users</p>
                                 <?php
                                 $query = $connect->query("SELECT * FROM users");
-                                
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
+
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
 
                             </div>
                         </div>
@@ -205,80 +218,66 @@ include 'db/connection.php';
                 </div>
             </div>
 
-             <!-- Recent Sales Start -->
-             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent users logged in</h6>
-                        <a href="adduser/adduser.php"><i class="fa fa-plus-circle me-2 text-primary"></i>Add Admin</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0 " id="example">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">UserName</th>
-                                    
-                                    <th scope="col">Email</th>
+            <!-- Recent Sales Start -->
+            <section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-10 mb-4 mb-lg-0">
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              
+             
+              <img class="rounded pt-2 pb-4" src="<?php echo $_SESSION['userimage'];?>" alt="profile" class="img-fluid my-5" style="width: 200px;" />
+                
+             
+              <h5><?php echo $_SESSION['username']; ?></h5>
+              
+             <i class="far fa-edit mb-5 text-white"></i>
 
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Location</th>
-                                  
-                                </tr>
-                            </thead>
-
-
-                            <?php
-  $i=0;
-foreach($feching as $key => $user)
-  { 
-  $i++;
-   ?>
-
-   
-  <tbody>
-     <tr>
-        <th scope="row"><?php echo $i ?></th>
-            <td><?=$user->username; ?></td>
-                                
-            <td><?=$user->email; ?></td>
-             <td><?=$user->phone; ?></td>
-             <td><?=$user->Location; ?></td>
-      </tr>
-                               
-                               
-   </tbody>
-                            <?php } ?>
-                        </table>
-                    </div>
-                </div>
+             <p class="">Exodus Travel to the any corner of the world, without going around in circles</p>
             </div>
-            <!-- Recent Sales End -->
-
-            <!-- Widgets Start -->
-            
-            <!-- Widgets End -->
-
-
-            <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved. 
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="#">Eugene</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="#" target="_blank">Exodus </a>
-                        </div>
-                    </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted"><?php echo $_SESSION['email']; ?></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted"><?php echo $_SESSION['phone']; ?></p>
+                  </div>
                 </div>
+                <h6>Projects</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                <div class="col-6 mb-3">
+                    <h6>Company</h6>
+                    <p class="text-muted">Exodus</p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Role</h6>
+                    <p class="text-primary"><?php echo $_SESSION['userType']; ?></p>
+                  </div>
+                 
+                </div>
+                <div class="d-flex justify-content-start">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+              </div>
             </div>
-            <!-- Footer End -->
+          </div>
         </div>
-        <!-- Content End -->
+      </div>
+    </div>
+  </div>
+</section>
 
 
         <!-- Back to Top -->
@@ -306,6 +305,6 @@ foreach($feching as $key => $user)
 </html>
 <script type="text/javascript">
     $(document).ready(function() {
-    $('#example').DataTable();
-} );
+        $('#example').DataTable();
+    });
 </script>

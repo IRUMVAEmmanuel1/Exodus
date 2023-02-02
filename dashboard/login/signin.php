@@ -72,7 +72,7 @@ include '../../enduser/layout/loginHeader.php';
                 <div class="col-12 col-sm-8 col-md-6 col-lg-8 col-xl-8">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="index.html" class="">
+                            <a href="index.php" class="">
                                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>ADMIN</h3>
                             </a>
                             <h3>Sign In</h3>

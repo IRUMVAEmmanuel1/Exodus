@@ -4,8 +4,8 @@ include '../db/connection.php';
 
 $id=$_GET['id'];
 
-$query="DELETE FROM `users` WHERE  id=$id";
-$delete= $conn->query($query);
+$query="DELETE FROM `users` WHERE  user_id=$id";
+$delete= $connect->query($query);
 if($delete){
     ?> 
 	<script type="text/javascript">

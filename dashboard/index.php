@@ -1,22 +1,22 @@
-<?php 
+<?php
 session_start();
 
 include 'db/connection.php';
 
 
-if (!isset($_SESSION['email'] )) {
+if (!isset($_SESSION['email'])) {
 
-	header('location:../signup_page.php');
+    header('location:../signup_page.php');
 }
 
 
 
-		$retrieve="SELECT * FROM users";
-		$query= $conn->query($retrieve);
-		// $query->execute();
-		$feching=$query->fetchAll(PDO::FETCH_OBJ);
+$retrieve = "SELECT * FROM users";
+$query = $conn->query($retrieve);
+// $query->execute();
+$feching = $query->fetchAll(PDO::FETCH_OBJ);
 
-     ?>
+?>
 
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['email'] )) {
 
 <head>
     <meta charset="utf-8">
-    <title>Exodus</title>
+    <title>Exodus Tour and Travery Agency</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -69,38 +69,38 @@ if (!isset($_SESSION['email'] )) {
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3 " >
-        <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+        <div class="sidebar pe-4 pb-3 ">
+            <nav class="navbar bg-light navbar-light">
+                <a href="index.php" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary">Exodus</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="../img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="<?php echo $_SESSION['adminImage'];?> " alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                <h6 class="mb-0"><?php echo $_SESSION['email'] ;?></h6>
-                <span>Admin</span>
-                     </div>
+                        <h6 class="mb-0"><?php echo $_SESSION['username']; ?></h6>
+                        <span>Admin</span>
+                    </div>
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="#" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2 text-primary"></i>Dashboard</a>
-                    
+
                     <div class="nav-item dropdown">
                         <a href="destination/destination.php" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-calendar me-2 text-primary"></i>Destination</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="destination/destination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add Destination</a>
                             <a href="destination/destList.php" class="dropdown-item "><i class="fa fa-file me-2 text-primary"></i>destination List</a>
-                            
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user-circle me-2 text-primary"></i>Users</a>
-                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
+                        <div class="dropdown-menu bg-transparent border-0" style="padding-left: 15px;">
                             <a href="adduser/adduser.php" class="nav-item nav-link"><i class="fa fa-plus-circle me-2 text-primary"></i> Add Users</a>
                             <a href="adduser/listuser.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>UserList</a>
-                            
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -108,7 +108,7 @@ if (!isset($_SESSION['email'] )) {
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="gallery/insertGallery.php" class="nav-item nav-link "><i class="fa fa-plus-circle me-2 text-primary"></i> Add Gallery</a>
                             <a href="gallery/listOfGallery.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Gallery list</a>
-                            
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -116,21 +116,30 @@ if (!isset($_SESSION['email'] )) {
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="hotels/hotelPages.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Add Hotel </a>
                             <a href="hotels/hotelList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Hotel list</a>
-                            
+
                         </div>
-                    </div> 
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>Blog</a>
+                        <div class="dropdown-menu bg-transparent border-0 " style="padding-left: 30px;">
+                            <a href="blog/BlogPage.php" class="dropdown-item  "><i class="fa fa-plus-circle me-2 text-primary "></i>Add Blog </a>
+                            <a href="blog/BlogList.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Blog list</a>
+
+                        </div>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2 text-primary"></i>View booking</a>
                         <div class="dropdown-menu bg-transparent border-0" style="padding-left: 30px;">
                             <a href="Booked/BookedDestination.php" class="dropdown-item "><i class="fa fa-plus-circle me-2 text-primary"></i>Tour Booking </a>
                             <a href="Booked/BookedHotel.php" class="dropdown-item"><i class="fa fa-file me-2 text-primary"></i>Hotel Booking</a>
-                            
+
                         </div>
                     </div>
-                    
+                    <a href="feedback/feedback.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2 text-primary"></i>feedback</a>
+
                 </div>
             </nav>
-            </div>
+        </div>
         <!-- Sidebar End -->
 
 
@@ -138,7 +147,7 @@ if (!isset($_SESSION['email'] )) {
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-2 py-0">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <a href="index.php" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -148,18 +157,18 @@ if (!isset($_SESSION['email'] )) {
                     <input class="form-control border-0 text-danger" type="search" placeholder="Search">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
-                    
-                   
+
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email'] ;?></span>
+                            <img class="rounded-circle me-lg-2" src="<?php echo $_SESSION['adminImage'];?> "alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['email']; ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="profile/profile.php" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
                             <a href="login/signout.php" class="dropdown-item">Log Out</a>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -168,12 +177,12 @@ if (!isset($_SESSION['email'] )) {
 
 
             <!-- Sale & Revenue Start -->
-           
+
             <!-- Sale & Revenue End -->
 
 
             <!-- Sales Chart Start -->
-            
+
 
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
@@ -186,10 +195,10 @@ if (!isset($_SESSION['email'] )) {
                                 $query = $connect->query("SELECT * FROM destination");
 
 
-                                
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                               
+
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -201,9 +210,9 @@ if (!isset($_SESSION['email'] )) {
                                 <?php
                                 $query = $connect->query("SELECT * FROM hotels");
 
-                            ?>
-                               <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                              
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -215,9 +224,9 @@ if (!isset($_SESSION['email'] )) {
                                 <?php
                                 $query = $connect->query("SELECT * FROM booking");
 
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
-                                
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
+
                             </div>
                         </div>
                     </div>
@@ -228,9 +237,9 @@ if (!isset($_SESSION['email'] )) {
                                 <p class="mb-2">Total users</p>
                                 <?php
                                 $query = $connect->query("SELECT * FROM users");
-                                
-                            ?>
-                                <h4 class="mb-0 text-primary"><?= $query->num_rows;?></h4>
+
+                                ?>
+                                <h4 class="mb-0 text-primary"><?= $query->num_rows; ?></h4>
 
                             </div>
                         </div>
@@ -238,8 +247,8 @@ if (!isset($_SESSION['email'] )) {
                 </div>
             </div>
 
-             <!-- Recent Sales Start -->
-             <div class="container-fluid pt-4 px-4">
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Recent users logged in</h6>
@@ -248,43 +257,40 @@ if (!isset($_SESSION['email'] )) {
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0 " id="example">
                             <thead>
-                                <tr>
+                                <tr class="bg-primary text-white">
                                     <th scope="col">#</th>
                                     <th scope="col">UserName</th>
-                                    
                                     <th scope="col">Email</th>
-
+                                    <th scope="col">Role</th>
                                     <th scope="col">Phone</th>
-                                    
+
                                     <th scope="col">action</th>
                                 </tr>
                             </thead>
 
+                                <tbody>
+                                <?php
+                            $i = 0;
+                            foreach ($feching as $key => $user) {
+                                $i++;
+                            ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $i ?></th>
+                                        <td><?= $user->username; ?></td>
 
-                            <?php
-  $i=0;
-foreach($feching as $key => $user)
-  { 
-  $i++;
-   ?>
+                                        <td><?= $user->email; ?></td>
+                                        <td><?= $user->userType; ?></td>
+                                        <td><?= $user->phone; ?></td>
+                                        <td>
 
-   
-  <tbody>
-     <tr>
-        <th scope="row"><?php echo $i ?></th>
-            <td><?=$user->username; ?></td>
-                                
-            <td><?=$user->email; ?></td>
-             <td><?=$user->phone; ?></td>
-            <td>
-            <a href="edit.php?id=<?=$user->id; ?>" style="padding-right: 10px; color:green"><button class="btn btn-success">edit</button></a>
-            <a href="adduser/deleteUser.php?id=<?=$user->id; ?>" onclick="return confirm('Are you sure you want to delete this file with its details permanently? click Ok to continue or click Cancel')"><button class="btn btn-danger">delete</button></a>
-             </td>
-      </tr>
-                               
-                               
-   </tbody>
-                            <?php } ?>
+                                            <a href="edit.php?id=<?= $user->user_id; ?>" style="padding-right: 10px; color:green"><button class="btn btn-success">edit</button></a>
+                                            <a href="delete.php?id=<?= $user->user_id; ?>" onclick="return confirm('Are you sure you want to delete this file with its details permanently? click Ok to continue or click Cancel')"><button class="btn btn-danger">delete</button></a>
+                                        </td>
+                                    </tr>
+
+                                    <?php } ?>
+                                </tbody>
+                            
                         </table>
                     </div>
                 </div>
@@ -292,22 +298,21 @@ foreach($feching as $key => $user)
             <!-- Recent Sales End -->
 
             <!-- Widgets Start -->
-            
-            <!-- Widgets End -->
 
+            <!-- Widgets End -->
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved. 
+                            &copy; <a href="#">Exodus.rw</a>, All Right Reserved.
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="#">Eugene</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="#" target="_blank">Exodus </a>
+
+                            Designed By <a href="#">Exodus Tour and Travel agency</a>
+                            </br>
+
                         </div>
                     </div>
                 </div>
@@ -337,11 +342,22 @@ foreach($feching as $key => $user)
 
 
     <script>
-
-$(document).ready(function () {
-    $('#example').DataTable();
-});
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
     </script>
 </body>
 
 </html>
+</head>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('#example').DataTable();
+} );
+</script>

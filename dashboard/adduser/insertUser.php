@@ -1,57 +1,85 @@
-<?php
+
+<?php 
 include '../db/connection.php';
+$user_name=$_POST["username"];
+$email=$_POST["email"];
+$password=$_POST["password"];
+$phone=$_POST["phone"];
+$pass=sha1($password);
+$userType="Admin";
+$files=$_FILES['file']['tmp_name'];
+$filename=$_FILES['file']['name'];
+$path='../img/profile/'.$filename;
+$fileType = pathinfo($path,PATHINFO_EXTENSION);
+if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
+// Allow certain file formats
+$allowTypes = array('jpg','png','jpeg','gif','jfif');
 
-	$user_name=$_POST["username"];
-	$email=$_POST["email"];
-	$password=$_POST["password"];
-	$phone=$_POST["phone"];
-	$pass=sha1($password);
-	$userType="Admin";
-	if(isset($_POST["submit"]) && !empty($_POST["username"])&& !empty($_POST["email"]) && !empty($_POST["phone"])&& !empty($_POST["password"])){
-	$insert="INSERT INTO `users`(`username`, `email`, `phone`, `password`,`userType`) VALUES (?,?,?,?,?)";
-	$query=$conn->prepare($insert);
-	
-	
-	$query->execute(array($user_name,$email,$phone,$password,$userType));
-	if ($query) {
-		$message="data inserted Successfully"
-	?> 
+if(in_array($fileType, $allowTypes)){
+
+      // Upload file to server
+if (move_uploaded_file($files,$path )) {
+
+    // Insert image file name into database
+$savefile=$conn->prepare("INSERT INTO `users`(`username`, `email`, `phone`, `password`, `userType`, `profile`) VALUES(?,?,?,?,?,?)");
+$RESULT=$savefile->execute(array($user_name,$email,$phone,$password,$userType,$filename));
+if($RESULT){
+    // $statusMsg = "The file ".$filename. " has been uploaded successfully.";
+
+    ?> 
 	<script type="text/javascript">
-		alert("Registration Done Successfully");
+		alert("The user:  <?=$user_name; ?> added successfully.");
+		location.href='listuser.php';
+	</script>
+	
+	<?php 
+}else{
+
+
+
+    ?> 
+	<script type="text/javascript">
+		alert("The user:  <?=$user_name; ?> image upload failed, please try again..");
 		location.href='adduser.php';
 	</script>
 	
-	<?php  
-	
-	}
-	 else {
-			echo "data not inserted";
-	}
+	<?php 
+} 
+}else{
 
-	}
-	else {
-		?> 
+    ?> 
 	<script type="text/javascript">
-		alert("please fill all data");
+		alert("The user:  <?=$user_name; ?> Sorry, there was an error uploading your image.");
 		location.href='adduser.php';
 	</script>
 	
 	<?php 
 }
+}else{
 
-	// $result=$conn->query($insert);
-	//  if ($result) {
-	// 	 echo "user have been registed";
-	//  }
-	//  else{
-	// 	 echo "not";
-	//  }
-//    }
+    ?> 
+	<script type="text/javascript">
+		alert("The user:  <?=$user_name; ?> Sorry, only JPG, JPEG, PNG, GIF, images are allowed to upload.");
+		location.href='adduser.php';
+	</script>
+	
+	<?php 
+}
+}else{
 
-// echo 'your username is: '.$user_name.'  '.$email.'  '.$password.'  '.$pass;
-   
-   ?>
+    ?> 
+	<script type="text/javascript">
+		alert("The user:  <?=$user_name; ?> Please select a profile to upload.");
+		location.href='adduser.php';
+	</script>
+	
+	<?php 
+
+}
+
+// // Display status message
+// echo $statusMsg;
 
 	
 	

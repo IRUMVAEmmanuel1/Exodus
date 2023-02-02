@@ -6,7 +6,7 @@
 
 
 <head>
-	<title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
+	<title>Exodus Tour and Travel Agency</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
@@ -43,7 +43,9 @@
 					<li class="nav-item"><a href="index.php#about" class="nav-link" style="color:black ;">About</a></li>
 					<li class="nav-item"><a href="index.php#destination" class="nav-link" style="color:black ;">Destination</a></li>
 					<li class="nav-item"><a href="index.php#hotel" class="nav-link"style="color:black ;">Hotel</a></li>
-					<li class="nav-item"><a href="gallery.php" class="nav-link">Gallery</a></li>
+					<li class="nav-item"><a href="index.php#blog" class="nav-link"style="color:black ;">Blog</a></li>
+					<li class="nav-item"><a href="index.php#service" class="nav-link"style="color:black ;">Service</a></li>
+					<li class="nav-item"><a href="gallery.php" class="nav-link"  style="color:black ;">Gallery</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link" style="color:black ;">Contact</a></li>
 					
 				</ul>

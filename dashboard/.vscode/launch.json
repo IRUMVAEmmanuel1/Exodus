@@ -7,8 +7,8 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\1k\\Downloads\\aznews-master\\dashmin-1.0.0\\index.html"
+            "name": "Open index.php",
+            "file": "c:\\Users\\1k\\Downloads\\aznews-master\\dashmin-1.0.0\\index.php"
         }
     ]
 }

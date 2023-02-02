@@ -32,7 +32,7 @@
 <div  style="margin-top: 105px;">
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="background-color:white; box-shadow: 2px 2px 5px rgb(160, 164, 165)">
 		<div class="container">
-			<a class="navbar-brand" href="index.html" style="color: black;">Exodus<span>Travel Agency</span></a>
+			<a class="navbar-brand" href="index.php" style="color: black;">Exodus<span>Travel Agency</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>
@@ -43,7 +43,7 @@
 					<li class="nav-item"><a href="index.php#about" class="nav-link" style="color:black ;">About</a></li>
 					<li class="nav-item"><a href="index.php#destination" class="nav-link" style="color:black ;">Destination</a></li>
 					<li class="nav-item"><a href="index.php#hotel" class="nav-link"style="color:black ;">Hotel</a></li>
-					<li class="nav-item"><a href="index.php#blog.html" class="nav-link" style="color:black ;">Blog</a></li>
+					<li class="nav-item"><a href="index.php#blog.php" class="nav-link" style="color:black ;">Blog</a></li>
 					<li class="nav-item"><a href="contact.php" class="nav-link" style="color:black ;">Contact</a></li>
 					
 				</ul>
